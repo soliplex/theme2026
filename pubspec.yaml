@@ -1,0 +1,70 @@
+name: theme_template
+description: "Theme Template - AI chat application"
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.10.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_svg: ^2.3.0
+  soliplex_frontend:
+    git:
+      url: https://github.com/soliplex/frontend.git
+      ref: v0.88.0+58
+  # ClassificationTheme/ClassificationLevel are not re-exported by
+  # soliplex_frontend. soliplex_frontend pins soliplex_design via a relative
+  # path, so this ref must be the exact commit the soliplex_frontend tag
+  # resolves to — a tag here fails pub's version solving. Keep in lockstep
+  # with the soliplex_frontend ref above.
+  soliplex_design:
+    git:
+      url: https://github.com/soliplex/frontend.git
+      ref: bc732b7b9ccf0d593dc0f34d0c1a155a83e35df9
+      path: packages/soliplex_design
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.5
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/branding/theme_template/
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  macos:
+    generate: true
+  web:
+    generate: true
+  windows:
+    generate: true
+  image_path: "assets/branding/theme_template/app_icon_1024.png"
+  image_path_ios: "assets/branding/theme_template/app_icon_ios_light_1024.png"
+  image_path_ios_dark_transparent: "assets/branding/theme_template/app_icon_ios_dark_1024.png"
+  web_favicon_path: "assets/branding/theme_template/favicon_48.png"
+  adaptive_icon_foreground: "assets/branding/theme_template/adaptive_foreground.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_monochrome: "assets/branding/theme_template/adaptive_foreground.png"
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: "assets/branding/theme_template/splash_1024.png"
+  color_dark: "#000000"
+  image_dark: "assets/branding/theme_template/splash_dark_1024.png"
+  android_12:
+    color: "#ffffff"
+    image: "assets/branding/theme_template/android12_splash.png"
+    color_dark: "#000000"
+    image_dark: "assets/branding/theme_template/android12_splash_dark.png"
+  ios: true
+  web: true
