@@ -1,0 +1,12 @@
+{
+  "ignores": [
+    ".dart_tool/**",
+    ".fvm/**",
+    "build/**",
+    "linux/**",
+    "windows/**",
+    "ios/Pods/**",
+    "ios/.symlinks/**",
+    "ios/Runner/Assets.xcassets/**"
+  ]
+}

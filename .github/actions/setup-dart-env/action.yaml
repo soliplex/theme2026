@@ -1,0 +1,38 @@
+name: "Setup Dart/Flutter Environment"
+description: "Sets up Flutter SDK, caches pub dependencies, and runs pub get"
+inputs:
+  working-directory:
+    description: "Directory to run pub get in"
+    default: "."
+  runner:
+    description: "Tool to use for pub get (flutter or dart)"
+    default: "flutter"
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: 3.38.7
+        channel: stable
+        cache: true
+
+    - name: Cache pub dependencies
+      uses: actions/cache@v5
+      with:
+        path: ~/.pub-cache
+        key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pub-
+
+    - name: Install dependencies
+      working-directory: ${{ inputs.working-directory }}
+      shell: bash
+      # The ag_ui git dependency (pulled transitively via soliplex_frontend)
+      # lives in a repo that LFS-tracks binary assets we don't use; one of its
+      # LFS objects is missing upstream, which aborts the clone during pub get.
+      # We consume only the pure Dart sources (not LFS-tracked), so skip the
+      # LFS smudge filter.
+      env:
+        GIT_LFS_SKIP_SMUDGE: "1"
+      run: ${{ inputs.runner }} pub get
