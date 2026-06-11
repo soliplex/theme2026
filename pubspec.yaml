@@ -54,12 +54,17 @@ flutter_launcher_icons:
   web_favicon_path: "assets/branding/theme_template/favicon_48.png"
   adaptive_icon_foreground: "assets/branding/theme_template/adaptive_foreground.png"
   adaptive_icon_background: "#ffffff"
+  adaptive_icon_monochrome: "assets/branding/theme_template/adaptive_foreground.png"
 
 flutter_native_splash:
   color: "#ffffff"
   image: "assets/branding/theme_template/splash_1024.png"
+  color_dark: "#000000"
+  image_dark: "assets/branding/theme_template/splash_dark_1024.png"
   android_12:
     color: "#ffffff"
     image: "assets/branding/theme_template/android12_splash.png"
+    color_dark: "#000000"
+    image_dark: "assets/branding/theme_template/android12_splash_dark.png"
   ios: true
   web: true
