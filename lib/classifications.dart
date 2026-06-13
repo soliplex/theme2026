@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:soliplex_design/soliplex_design.dart';
+import 'package:soliplex_frontend/soliplex_frontend.dart';
 
 /// Example sensitivity markings, ordered least → most restrictive.
 final demoClassifications = ClassificationTheme(
