@@ -1,5 +1,5 @@
 name: "Setup Dart/Flutter Environment"
-description: "Sets up Flutter SDK, caches pub dependencies, and runs pub get"
+description: "Sets up the Flutter SDK and runs pub get"
 inputs:
   working-directory:
     description: "Directory to run pub get in"
@@ -15,15 +15,6 @@ runs:
       with:
         flutter-version: 3.38.7
         channel: stable
-        cache: true
-
-    - name: Cache pub dependencies
-      uses: actions/cache@v5
-      with:
-        path: ~/.pub-cache
-        key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pub-
 
     - name: Install dependencies
       working-directory: ${{ inputs.working-directory }}
