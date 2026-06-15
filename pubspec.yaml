@@ -1,7 +1,7 @@
 name: theme_template
 description: "Theme Template - AI chat application"
 publish_to: 'none'
-version: 0.1.0+1
+version: 0.1.1+2
 
 environment:
   sdk: ^3.10.3
@@ -14,17 +14,7 @@ dependencies:
   soliplex_frontend:
     git:
       url: https://github.com/soliplex/frontend.git
-      ref: v0.88.0+58
-  # ClassificationTheme/ClassificationLevel are not re-exported by
-  # soliplex_frontend. soliplex_frontend pins soliplex_design via a relative
-  # path, so this ref must be the exact commit the soliplex_frontend tag
-  # resolves to — a tag here fails pub's version solving. Keep in lockstep
-  # with the soliplex_frontend ref above.
-  soliplex_design:
-    git:
-      url: https://github.com/soliplex/frontend.git
-      ref: bc732b7b9ccf0d593dc0f34d0c1a155a83e35df9
-      path: packages/soliplex_design
+      ref: v0.89.0+59
 
 dev_dependencies:
   flutter_test:
