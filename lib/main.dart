@@ -5,6 +5,7 @@ import 'package:soliplex_frontend/soliplex_frontend.dart';
 
 import 'classifications.dart';
 import 'consent_notice.dart';
+import 'theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +20,8 @@ Future<void> main() async {
         height: 64,
       ),
     ),
+    theme: themeTemplateBrand,
+    fontResolver: const GoogleFontResolver(),
     classifications: demoClassifications,
     redirectScheme: 'dev.soliplex.theme',
     defaultBackendUrl: 'https://api.example.com',
