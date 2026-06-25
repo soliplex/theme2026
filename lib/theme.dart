@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:soliplex_frontend/soliplex_frontend.dart';
 
 /// The white-label brand theme for this app: a neutral grey-purple palette,
-/// Inter for body text, Oswald for display/title text, and square corners.
+/// Inter for body/headline/title text, Oswald for the display roles, Squada
+/// One for the brand name, and square corners.
 const BrandTheme themeTemplateBrand = BrandTheme(
   light: _lightColors,
   dark: _darkColors,
@@ -43,34 +44,61 @@ const BrandColorScheme _darkColors = BrandColorScheme(
   onError: Color(0xFF690005),
 );
 
-// Inter tags the body and label roles; Oswald (the display family) tags the
-// headline and title roles. Per-role overrides tune size/weight/spacing for
-// the nine roles the design system exposes.
+// Oswald (the display family) styles the display roles. The headline and
+// title roles are routed back to Inter, and Squada One is the brand-name
+// family. Each role carries its own size/weight/height/spacing.
 const BrandTypography _typography = BrandTypography(
   bodyFamily: 'Inter',
   displayFamily: 'Oswald',
+  brandFamily: 'Squada One',
+  displayLarge: TypeScaleOverride(
+    fontSize: 48,
+    height: 1.2,
+    letterSpacing: -0.25,
+  ),
+  displayMedium: TypeScaleOverride(fontSize: 32, height: 1.8, letterSpacing: 0),
+  displaySmall: TypeScaleOverride(fontSize: 28, height: 2.15, letterSpacing: 0),
+  headlineLarge: TypeScaleOverride(
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+    height: 1.455,
+    letterSpacing: 0,
+    family: BrandFontRole.body,
+  ),
   headlineMedium: TypeScaleOverride(
     fontSize: 28,
     fontWeight: FontWeight.w600,
     height: 2,
+    letterSpacing: 0,
+    family: BrandFontRole.body,
+  ),
+  headlineSmall: TypeScaleOverride(
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+    height: 2,
+    letterSpacing: 0,
+    family: BrandFontRole.body,
   ),
   titleLarge: TypeScaleOverride(
     fontSize: 24,
     fontWeight: FontWeight.w600,
     height: 1.27,
     letterSpacing: 0,
+    family: BrandFontRole.body,
   ),
   titleMedium: TypeScaleOverride(
     fontSize: 18,
     fontWeight: FontWeight.w600,
     height: 1.8,
     letterSpacing: 0.15,
+    family: BrandFontRole.body,
   ),
   titleSmall: TypeScaleOverride(
     fontSize: 14,
     fontWeight: FontWeight.w600,
     height: 1.43,
     letterSpacing: 0.1,
+    family: BrandFontRole.body,
   ),
   bodyLarge: TypeScaleOverride(
     fontSize: 18,
@@ -89,6 +117,12 @@ const BrandTypography _typography = BrandTypography(
     fontWeight: FontWeight.w400,
     height: 1.6,
     letterSpacing: 0.4,
+  ),
+  labelLarge: TypeScaleOverride(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    height: 1.4,
+    letterSpacing: 0.2,
   ),
   labelMedium: TypeScaleOverride(
     fontSize: 15,

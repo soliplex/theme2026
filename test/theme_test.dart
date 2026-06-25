@@ -46,15 +46,40 @@ void main() {
   group('themeTemplateBrand typography', () {
     final textTheme = lower(Brightness.light).textTheme;
 
-    test('body roles use Inter, display/title roles use Oswald', () {
-      expect(textTheme.bodyMedium?.fontFamily, 'Inter');
-      expect(textTheme.titleLarge?.fontFamily, 'Oswald');
+    test('display roles use the display font (Oswald)', () {
+      expect(textTheme.displayLarge?.fontFamily, 'Oswald');
+      expect(textTheme.displayMedium?.fontFamily, 'Oswald');
+      expect(textTheme.displaySmall?.fontFamily, 'Oswald');
     });
 
-    test('applies the ported per-role type-scale overrides', () {
-      // titleSmall defaults to 16 in the design system; PR #75 set it to 14.
+    test('headline and title roles use the body font (Inter)', () {
+      expect(textTheme.headlineLarge?.fontFamily, 'Inter');
+      expect(textTheme.headlineMedium?.fontFamily, 'Inter');
+      expect(textTheme.titleLarge?.fontFamily, 'Inter');
+      expect(textTheme.titleSmall?.fontFamily, 'Inter');
+    });
+
+    test('body and label roles use the body font (Inter)', () {
+      expect(textTheme.bodyMedium?.fontFamily, 'Inter');
+      expect(textTheme.labelLarge?.fontFamily, 'Inter');
+    });
+
+    test('applies the full per-role type scale', () {
+      expect(textTheme.displayLarge?.fontSize, 48);
+      expect(textTheme.displayLarge?.letterSpacing, -0.25);
+      expect(textTheme.displaySmall?.height, 2.15);
+      expect(textTheme.headlineLarge?.fontSize, 32);
+      expect(textTheme.headlineLarge?.fontWeight, FontWeight.w700);
+      expect(textTheme.titleLarge?.fontSize, 24);
+      expect(textTheme.titleLarge?.fontWeight, FontWeight.w600);
       expect(textTheme.titleSmall?.fontSize, 14);
       expect(textTheme.titleSmall?.fontWeight, FontWeight.w600);
+      expect(textTheme.bodyLarge?.fontSize, 18);
+      expect(textTheme.labelLarge?.fontSize, 18);
+    });
+
+    test('configures a distinct brand font family', () {
+      expect(themeTemplateBrand.typography.brandFamily, 'Squada One');
     });
   });
 
