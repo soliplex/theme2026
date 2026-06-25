@@ -10,11 +10,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final callbackParams = CallbackParamsCapture.captureNow();
   clearCallbackUrl();
-  final defaults = SoliplexBranding.soliplex;
   final config = await standard(
-    branding: SoliplexBranding(
-      accentLight: defaults.accentLight,
-      accentDark: defaults.accentDark,
+    identity: AppIdentity(
       appName: 'Theme Template',
       logoLight: SvgPicture.asset(
         'assets/branding/theme_template/logo.svg',
