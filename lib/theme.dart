@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:soliplex_frontend/soliplex_frontend.dart';
 
-/// The white-label brand theme for this app: a neutral grey-purple palette,
-/// Inter for body/headline/title text, Oswald for the display roles, Squada
-/// One for the brand name, and square corners.
-const BrandTheme themeTemplateBrand = BrandTheme(
+/// The CO-OP brand theme: a flat, Bauhaus-inspired design language. Blue is the
+/// brand/action color, deep purple the structural secondary, orange the
+/// energetic accent. Inter throughout, hairline borders, and square corners —
+/// the library renders the flat, zero-elevation, hairline-ruled components once
+/// it is handed [BrandShape.square] and the hairline [BrandColorScheme.border].
+const BrandTheme coopBrand = BrandTheme(
   light: _lightColors,
   dark: _darkColors,
   typography: _typography,
@@ -13,128 +15,136 @@ const BrandTheme themeTemplateBrand = BrandTheme(
 );
 
 const BrandColorScheme _lightColors = BrandColorScheme(
-  primary: Color(0xFF6B6D7B),
-  secondary: Color(0xFF8E8698),
-  background: Color(0xFFFAFAFA),
-  foreground: Color(0xFF1A1A1E),
-  muted: Color(0xFFE4E4E8),
-  mutedForeground: Color(0xFF6E6E78),
-  border: Color(0xFFC8C8CE),
-  tertiary: Color(0xFF7B7486),
-  error: Color(0xFFBA1A1A),
+  primary: Color(0xFF0A7AFF), // brand blue: actions / links
+  secondary: Color(0xFF2B1F65), // deep purple: headers / accents
+  tertiary: Color(0xFFFF5934), // orange: energetic accent
+  background: Color(0xFFFFFFFF), // white page + surface
+  foreground: Color(0xFF0E121C), // near-black primary text
+  muted: Color(0xFFDFDFE6), // light gray secondary container
+  mutedForeground: Color(0xFF555F78), // mid gray
+  border: Color(0xFFD2D1E0), // hairline
+  link: Color(0xFF0A7AFF),
+  error: Color(0xFFBA1A1A), // semantic red (orange reserved for accent)
   onPrimary: Color(0xFFFFFFFF),
   onSecondary: Color(0xFFFFFFFF),
-  onTertiary: Color(0xFFFFFFFF),
+  onTertiary: Color(0xFF0E121C), // near-black on orange clears WCAG AA
   onError: Color(0xFFFFFFFF),
 );
 
 const BrandColorScheme _darkColors = BrandColorScheme(
-  primary: Color(0xFFB8B9C6),
-  secondary: Color(0xFFCDC5D4),
-  background: Color(0xFF1A1A1D),
-  foreground: Color(0xFFE5E5E8),
-  muted: Color(0xFF2E2E33),
-  mutedForeground: Color(0xFF9A9AA2),
-  border: Color(0xFF48484F),
-  tertiary: Color(0xFFB0A8BA),
-  error: Color(0xFFFFB4AB),
-  onPrimary: Color(0xFF1A1A1E),
-  onSecondary: Color(0xFF1A1A1E),
-  onTertiary: Color(0xFF1A1A1E),
+  primary: Color(0xFF0A7AFF), // brand blue holds on dark
+  secondary: Color(0xFF663399), // lifted medium purple
+  tertiary: Color(0xFFFF5934), // orange accent
+  background: Color(0xFF1D1F23), // near-black
+  foreground: Color(0xFFDFDFE6), // light gray text
+  muted: Color(0xFF2C2E33), // dark gray surface
+  mutedForeground: Color(0xFF8A93A8), // neutral mid gray
+  border: Color(0xFF2C2E33), // dark hairline
+  link: Color(0xFF0A7AFF),
+  error: Color(0xFFFFB4AB), // semantic red (dark)
+  onPrimary: Color(0xFFFFFFFF),
+  onSecondary: Color(0xFFFFFFFF),
+  onTertiary: Color(0xFF0E121C),
   onError: Color(0xFF690005),
 );
 
-// Oswald (the display family) styles the display roles. The headline and
-// title roles are routed back to Inter, and Squada One is the brand-name
-// family. Each role carries its own size/weight/height/spacing.
+// CO-OP is a single geometric grotesque: Inter for every role. Headings carry
+// heavy weights and tight (negative) tracking; body stays restrained; the label
+// roles are tracked uppercase typographic blocks (labelMedium drives the
+// library's badge style — the text is uppercased at the call site).
 const BrandTypography _typography = BrandTypography(
   bodyFamily: 'Inter',
-  displayFamily: 'Oswald',
-  brandFamily: 'Squada One',
+  displayFamily: 'Inter',
+  brandFamily: 'Inter',
   displayLarge: TypeScaleOverride(
     fontSize: 48,
-    height: 1.2,
-    letterSpacing: -0.25,
+    fontWeight: FontWeight.w800,
+    height: 1.05,
+    letterSpacing: -1,
   ),
-  displayMedium: TypeScaleOverride(fontSize: 32, height: 1.8, letterSpacing: 0),
-  displaySmall: TypeScaleOverride(fontSize: 28, height: 2.15, letterSpacing: 0),
+  displayMedium: TypeScaleOverride(
+    fontSize: 36,
+    fontWeight: FontWeight.w800,
+    height: 1.1,
+    letterSpacing: -0.5,
+  ),
+  displaySmall: TypeScaleOverride(
+    fontSize: 30,
+    fontWeight: FontWeight.w800,
+    height: 1.1,
+    letterSpacing: -0.4,
+  ),
   headlineLarge: TypeScaleOverride(
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: FontWeight.w700,
-    height: 1.455,
-    letterSpacing: 0,
-    family: BrandFontRole.body,
+    height: 1.15,
+    letterSpacing: -0.3,
   ),
   headlineMedium: TypeScaleOverride(
-    fontSize: 28,
-    fontWeight: FontWeight.w600,
-    height: 2,
-    letterSpacing: 0,
-    family: BrandFontRole.body,
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    height: 1.2,
+    letterSpacing: -0.2,
   ),
   headlineSmall: TypeScaleOverride(
-    fontSize: 24,
-    fontWeight: FontWeight.w600,
-    height: 2,
-    letterSpacing: 0,
-    family: BrandFontRole.body,
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    height: 1.25,
+    letterSpacing: -0.1,
   ),
   titleLarge: TypeScaleOverride(
-    fontSize: 24,
-    fontWeight: FontWeight.w600,
-    height: 1.27,
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
+    height: 1.25,
     letterSpacing: 0,
-    family: BrandFontRole.body,
   ),
   titleMedium: TypeScaleOverride(
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: FontWeight.w600,
-    height: 1.8,
-    letterSpacing: 0.15,
-    family: BrandFontRole.body,
+    height: 1.3,
+    letterSpacing: 0,
   ),
   titleSmall: TypeScaleOverride(
     fontSize: 14,
     fontWeight: FontWeight.w600,
-    height: 1.43,
+    height: 1.4,
     letterSpacing: 0.1,
-    family: BrandFontRole.body,
   ),
   bodyLarge: TypeScaleOverride(
-    fontSize: 18,
-    fontWeight: FontWeight.w400,
-    height: 1.4,
-    letterSpacing: 0.5,
-  ),
-  bodyMedium: TypeScaleOverride(
     fontSize: 16,
     fontWeight: FontWeight.w400,
-    height: 1.4,
-    letterSpacing: 0.25,
+    height: 1.5,
+    letterSpacing: 0,
+  ),
+  bodyMedium: TypeScaleOverride(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    height: 1.5,
+    letterSpacing: 0,
   ),
   bodySmall: TypeScaleOverride(
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: FontWeight.w400,
-    height: 1.6,
-    letterSpacing: 0.4,
+    height: 1.45,
+    letterSpacing: 0.1,
   ),
   labelLarge: TypeScaleOverride(
-    fontSize: 18,
-    fontWeight: FontWeight.w500,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
     height: 1.4,
     letterSpacing: 0.2,
   ),
   labelMedium: TypeScaleOverride(
-    fontSize: 15,
-    fontWeight: FontWeight.w500,
+    fontSize: 11,
+    fontWeight: FontWeight.w700,
     height: 1.4,
-    letterSpacing: 0.2,
+    letterSpacing: 1,
   ),
   labelSmall: TypeScaleOverride(
-    fontSize: 13,
-    fontWeight: FontWeight.w500,
+    fontSize: 10,
+    fontWeight: FontWeight.w700,
     height: 1.4,
-    letterSpacing: 0.2,
+    letterSpacing: 1,
   ),
 );
 
