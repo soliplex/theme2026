@@ -104,15 +104,22 @@ import 'package:soliplex_frontend/src/modules/auth/consent_notice.dart';
 
 ### Source Images
 
-Place source images in `assets/branding/<app_name>/`:
+Every platform icon and splash is generated from just **five raster masters plus
+one SVG**. The generators do **not** accept SVG, so export raster PNGs from your
+vector logo. Place them in `assets/branding/<app_name>/`:
 
-| File | Size | Purpose |
-| ---- | ---- | ------- |
-| `app_icon_1024.png` | 1024x1024 | App icon and in-app logo |
-| `favicon_48.png` | 48x48 | Web favicon |
-| `splash_1024.png` | 1024x1024 | Splash screen image |
-| `adaptive_foreground.png` | 1024x1024 | Android adaptive icon foreground |
-| `android12_splash.png` | 1024x1024 | Android 12+ splash |
+| File | Size | Alpha | Content / safe-zone | Drives |
+| ---- | ---- | ----- | ------------------- | ------ |
+| `app_icon.png` | 1024x1024 | opaque | Full-bleed mark on brand background | iOS (light), macOS, Windows, web icons + favicon, Android legacy |
+| `app_icon_ios_dark.png` | 1024x1024 | transparent | Mark only (iOS composites its own dark backdrop) | iOS dark home-screen icon |
+| `adaptive_foreground.png` | 1024x1024 | transparent | Logo inside inner ~66% (adaptive mask safe-zone) | Android adaptive foreground |
+| `splash.png` | 1152x1152 | transparent | Light logo inside a 768px circle (Android 12 clips to a circle) | Splash (light), legacy + Android 12 |
+| `splash_dark.png` | 1152x1152 | transparent | Dark-mode (light-colored) logo, same circle | Splash (dark), legacy + Android 12 |
+| `favicon.svg` | vector | — | Brand mark; copy into `web/favicon.svg` | Web `<link rel="icon">` (see §5) |
+
+What is shared: one `app_icon.png` covers five platforms; one `splash.png`/
+`splash_dark.png` pair covers every splash. Backgrounds are hex colors, never
+images. You effectively maintain one logo plus your brand colors.
 
 Register the asset directory in `pubspec.yaml`:
 
@@ -126,30 +133,42 @@ flutter:
 ### Icon and Splash Generation
 
 Configure `flutter_launcher_icons` and `flutter_native_splash` in
-`pubspec.yaml`:
+`pubspec.yaml`. Only real config keys are shown below — note there is **no
+`web_favicon_path`** key (the web favicon is always `image_path` downscaled to
+16px), and the iOS dark icon key is `image_path_ios_dark_transparent`:
 
 ```yaml
 flutter_launcher_icons:
+  image_path: "assets/branding/my_app/app_icon.png"
   android: true
+  min_sdk_android: 21
+  adaptive_icon_foreground: "assets/branding/my_app/adaptive_foreground.png"
+  adaptive_icon_background: "#ffffff"
   ios: true
+  image_path_ios_dark_transparent: "assets/branding/my_app/app_icon_ios_dark.png"
   remove_alpha_ios: true
-  macos:
-    generate: true
+  background_color_ios: "#ffffff"
   web:
+    generate: true
+    background_color: "#ffffff"
+    theme_color: "#0A7AFF"
+  macos:
     generate: true
   windows:
     generate: true
-  image_path: "assets/branding/my_app/app_icon_1024.png"
-  web_favicon_path: "assets/branding/my_app/favicon_48.png"
-  adaptive_icon_foreground: "assets/branding/my_app/adaptive_foreground.png"
-  adaptive_icon_background: "#ffffff"
+    icon_size: 256
 
 flutter_native_splash:
   color: "#ffffff"
-  image: "assets/branding/my_app/splash_1024.png"
+  image: "assets/branding/my_app/splash.png"
+  color_dark: "#1d1f23"
+  image_dark: "assets/branding/my_app/splash_dark.png"
   android_12:
     color: "#ffffff"
-    image: "assets/branding/my_app/android12_splash.png"
+    image: "assets/branding/my_app/splash.png"
+    color_dark: "#1d1f23"
+    image_dark: "assets/branding/my_app/splash_dark.png"
+  android: true
   ios: true
   web: true
 ```
@@ -162,7 +181,8 @@ dart run flutter_native_splash:create
 ```
 
 This produces platform-specific icons in `android/`, `ios/`, `macos/`,
-`web/icons/`, and splash images in `web/splash/`.
+`windows/`, `web/icons/` (plus `web/favicon.png`), and splash images in
+`web/splash/`.
 
 ## 5. Web Scaffold
 
