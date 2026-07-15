@@ -549,10 +549,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: "23f08335362185a5ea2ad3a4e597f1375e78bce8a040df5c600c8d3552ef2394"
+      sha256: "1741988757a65eb6b36abe716829688cf01910bbf91c34354ff7ec1c3de2b349"
       url: "https://pub.dev"
     source: hosted
-    version: "1.17.0"
+    version: "1.18.0"
   mime:
     dependency: transitive
     description:
@@ -866,8 +866,8 @@ packages:
     dependency: transitive
     description:
       path: "packages/soliplex_agent"
-      ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
-      resolved-ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
+      ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
+      resolved-ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
       url: "https://github.com/soliplex/frontend.git"
     source: git
     version: "0.1.0"
@@ -875,8 +875,8 @@ packages:
     dependency: transitive
     description:
       path: "packages/soliplex_client"
-      ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
-      resolved-ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
+      ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
+      resolved-ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
       url: "https://github.com/soliplex/frontend.git"
     source: git
     version: "1.0.0-dev"
@@ -884,8 +884,8 @@ packages:
     dependency: transitive
     description:
       path: "packages/soliplex_client_native"
-      ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
-      resolved-ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
+      ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
+      resolved-ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
       url: "https://github.com/soliplex/frontend.git"
     source: git
     version: "1.0.0-dev"
@@ -893,8 +893,8 @@ packages:
     dependency: transitive
     description:
       path: "packages/soliplex_design"
-      ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
-      resolved-ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
+      ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
+      resolved-ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
       url: "https://github.com/soliplex/frontend.git"
     source: git
     version: "0.1.0"
@@ -902,17 +902,17 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "feat/brand-theme-api-gaps"
-      resolved-ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
+      ref: "v0.93.1+67"
+      resolved-ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
       url: "https://github.com/soliplex/frontend.git"
     source: git
-    version: "0.91.0+64"
+    version: "0.93.1+67"
   soliplex_logging:
     dependency: transitive
     description:
       path: "packages/soliplex_logging"
-      ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
-      resolved-ref: b26556fab74d429a5a9e2d47d32d5daefbc410d6
+      ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
+      resolved-ref: daa35b111108a7951fa8c29bdc0bed1b95f86cad
       url: "https://github.com/soliplex/frontend.git"
     source: git
     version: "0.1.0"
@@ -984,26 +984,26 @@ packages:
     dependency: transitive
     description:
       name: test
-      sha256: "280d6d890011ca966ad08df7e8a4ddfab0fb3aa49f96ed6de56e3521347a9ae7"
+      sha256: "8d9ceddbab833f180fbefed08afa76d7c03513dfdba87ffcec2718b02bbcbf20"
       url: "https://pub.dev"
     source: hosted
-    version: "1.30.0"
+    version: "1.31.0"
   test_api:
     dependency: transitive
     description:
       name: test_api
-      sha256: "8161c84903fd860b26bfdefb7963b3f0b68fee7adea0f59ef805ecca346f0c7a"
+      sha256: "949a932224383300f01be9221c39180316445ecb8e7547f70a41a35bf421fb9e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.10"
+    version: "0.7.11"
   test_core:
     dependency: transitive
     description:
       name: test_core
-      sha256: "0381bd1585d1a924763c308100f2138205252fb90c9d4eeaf28489ee65ccde51"
+      sha256: "1991d4cfe85d5043241acac92962c3977c8d2f2add1ee73130c7b286417d1d34"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.16"
+    version: "0.6.17"
   tuple:
     dependency: transitive
     description:
