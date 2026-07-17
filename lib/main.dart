@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:soliplex_frontend/flavors.dart';
 import 'package:soliplex_frontend/soliplex_frontend.dart';
 
 import 'classifications.dart';

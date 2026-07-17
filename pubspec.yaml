@@ -1,7 +1,7 @@
 name: theme_template
 description: "Theme Template - AI chat application"
 publish_to: 'none'
-version: 0.2.7+10
+version: 0.3.0+11
 
 environment:
   sdk: ^3.10.3
@@ -14,7 +14,7 @@ dependencies:
   soliplex_frontend:
     git:
       url: https://github.com/soliplex/frontend.git
-      ref: v0.93.1+67
+      ref: v0.94.0+68
 
 dev_dependencies:
   flutter_test:
