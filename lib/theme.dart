@@ -23,7 +23,7 @@ const BrandColorScheme _lightColors = BrandColorScheme(
   muted: Color(0xFFDFDFE6), // light gray secondary container
   mutedForeground: Color(0xFF555F78), // mid gray
   border: Color(0xFFD2D1E0), // hairline
-  link: Color(0xFF0A7AFF),
+  link: Color(0xFF0A6EE6), // AA link blue (4.79:1 on white)
   error: Color(0xFFBA1A1A), // semantic red (orange reserved for accent)
   onPrimary: Color(0xFFFFFFFF),
   onSecondary: Color(0xFFFFFFFF),
@@ -40,7 +40,7 @@ const BrandColorScheme _darkColors = BrandColorScheme(
   muted: Color(0xFF2C2E33), // dark gray surface
   mutedForeground: Color(0xFF8A93A8), // neutral mid gray
   border: Color(0xFF2C2E33), // dark hairline
-  link: Color(0xFF0A7AFF),
+  link: Color(0xFF2E8BFF), // AA link blue (4.91:1 on bg)
   error: Color(0xFFFFB4AB), // semantic red (dark)
   onPrimary: Color(0xFFFFFFFF),
   onSecondary: Color(0xFFFFFFFF),

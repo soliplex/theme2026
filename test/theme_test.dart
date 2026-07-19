@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:soliplex_frontend/soliplex_frontend.dart';
@@ -33,6 +35,63 @@ void main() {
       expect(theme.colorScheme.onSurface, const Color(0xFFDFDFE6));
       expect(theme.colorScheme.error, const Color(0xFFFFB4AB));
     });
+  });
+
+  group('coopBrand contrast', () {
+    double contrastRatio(Color a, Color b) {
+      final la = a.computeLuminance();
+      final lb = b.computeLuminance();
+      final hi = math.max(la, lb);
+      final lo = math.min(la, lb);
+      return (hi + 0.05) / (lo + 0.05);
+    }
+
+    // Both brand schemes set every slot; the `!`s below are on the fields the
+    // type still declares nullable.
+    final schemes = <String, BrandColorScheme>{
+      'light': coopBrand.light,
+      'dark': coopBrand.dark,
+    };
+
+    for (final entry in schemes.entries) {
+      test('${entry.key} scheme clears WCAG contrast floors', () {
+        final scheme = entry.value;
+
+        expect(
+          contrastRatio(scheme.foreground, scheme.background),
+          greaterThanOrEqualTo(4.5),
+        );
+        expect(
+          contrastRatio(scheme.link!, scheme.background),
+          greaterThanOrEqualTo(4.5),
+        );
+        expect(
+          contrastRatio(scheme.onSecondary!, scheme.secondary),
+          greaterThanOrEqualTo(4.5),
+        );
+        expect(
+          contrastRatio(scheme.onTertiary!, scheme.tertiary!),
+          greaterThanOrEqualTo(4.5),
+        );
+        expect(
+          contrastRatio(scheme.onError!, scheme.error!),
+          greaterThanOrEqualTo(4.5),
+        );
+        // De-emphasized text rides the WCAG UI/large-text 3:1 floor, matching
+        // the library's own muted-foreground floor.
+        expect(
+          contrastRatio(scheme.mutedForeground, scheme.muted),
+          greaterThanOrEqualTo(3.0),
+        );
+        // Recorded brand exception: primary fills keep the exact brand blue.
+        // White-on-blue is 4.01:1, which clears only the WCAG large-text/UI
+        // 3:1 bar. Accepted because button labels are bold labelLarge.
+        expect(
+          contrastRatio(scheme.onPrimary!, scheme.primary),
+          greaterThanOrEqualTo(3.0),
+        );
+      });
+    }
   });
 
   group('coopBrand shape', () {
