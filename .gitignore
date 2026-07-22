@@ -168,4 +168,5 @@ app.*.symbols
 .gclient_previous_custom_vars
 .gclient_previous_sync_commits
 
+.playwright-cli/
 /docs/co-op/
