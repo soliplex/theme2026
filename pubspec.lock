@@ -866,8 +866,8 @@ packages:
     dependency: transitive
     description:
       path: "packages/soliplex_agent"
-      ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
-      resolved-ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
+      ref: d51f0d4ce9acd5218f1b451aee7473437678f565
+      resolved-ref: d51f0d4ce9acd5218f1b451aee7473437678f565
       url: "https://github.com/soliplex/frontend.git"
     source: git
     version: "0.1.0"
@@ -875,8 +875,8 @@ packages:
     dependency: transitive
     description:
       path: "packages/soliplex_client"
-      ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
-      resolved-ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
+      ref: d51f0d4ce9acd5218f1b451aee7473437678f565
+      resolved-ref: d51f0d4ce9acd5218f1b451aee7473437678f565
       url: "https://github.com/soliplex/frontend.git"
     source: git
     version: "1.0.0-dev"
@@ -884,8 +884,8 @@ packages:
     dependency: transitive
     description:
       path: "packages/soliplex_client_native"
-      ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
-      resolved-ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
+      ref: d51f0d4ce9acd5218f1b451aee7473437678f565
+      resolved-ref: d51f0d4ce9acd5218f1b451aee7473437678f565
       url: "https://github.com/soliplex/frontend.git"
     source: git
     version: "1.0.0-dev"
@@ -893,8 +893,8 @@ packages:
     dependency: transitive
     description:
       path: "packages/soliplex_design"
-      ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
-      resolved-ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
+      ref: d51f0d4ce9acd5218f1b451aee7473437678f565
+      resolved-ref: d51f0d4ce9acd5218f1b451aee7473437678f565
       url: "https://github.com/soliplex/frontend.git"
     source: git
     version: "0.1.0"
@@ -902,17 +902,17 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "v0.96.0+72"
-      resolved-ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
+      ref: "v0.97.0+73"
+      resolved-ref: d51f0d4ce9acd5218f1b451aee7473437678f565
       url: "https://github.com/soliplex/frontend.git"
     source: git
-    version: "0.96.0+72"
+    version: "0.97.0+73"
   soliplex_logging:
     dependency: transitive
     description:
       path: "packages/soliplex_logging"
-      ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
-      resolved-ref: "5d2edee70c4840c2a6280e58863499993a7e524c"
+      ref: d51f0d4ce9acd5218f1b451aee7473437678f565
+      resolved-ref: d51f0d4ce9acd5218f1b451aee7473437678f565
       url: "https://github.com/soliplex/frontend.git"
     source: git
     version: "0.1.0"
