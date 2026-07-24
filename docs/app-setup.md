@@ -355,6 +355,25 @@ flutter run -d ios       # iOS simulator
 flutter run -d android   # Android emulator
 ```
 
+### Android emulator and a local backend
+
+Inside the emulator, `127.0.0.1` is the emulator itself, not your machine,
+so a backend at `http://127.0.0.1:8000` is unreachable by default. Forward
+the port before connecting:
+
+```bash
+adb reverse tcp:8000 tcp:8000
+```
+
+The app can then use `http://127.0.0.1:8000` unchanged — and because Android
+exempts loopback addresses from its cleartext-HTTP block, plain `http://`
+works without manifest changes. Re-run the command after restarting the
+emulator or adb; the forward does not persist.
+
+(The alternative host alias `http://10.0.2.2:8000` needs no adb command but
+is not loopback from the device's perspective, so plain HTTP would require
+`android:usesCleartextTraffic="true"` in `AndroidManifest.xml`.)
+
 ## Troubleshooting
 
 ### Entitlements require signing
